@@ -1,0 +1,14 @@
+[project]
+name = "llandv"
+version = "0.1.0"
+requires-python = ">=3.13"
+dependencies = [
+    "django>=6.0.6",
+    "django-storages[s3]>=1.14.6",
+]
+
+[dependency-groups]
+deploy = [
+    "gunicorn>=26.0.0",
+    "psycopg>=3.3.4",
+]

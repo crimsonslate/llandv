@@ -1,0 +1,9 @@
+*.
+!.gitignore
+!.python-version
+!.dockerignore
+
+__pycache__/
+dist/
+node_modules/
+*.sqlite3
