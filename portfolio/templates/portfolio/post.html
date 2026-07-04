@@ -1,0 +1,10 @@
+{% extends "portfolio/layout.html" %}
+{% block title %}{{ post.caption|truncatechars:'24' }}{% endblock title %}
+{% partialdef main %}
+<img class="max-h-256 w-full" src="{{ post.file.url }}">
+<p class="text-lg text-gray-200">{{ post.caption }}</p>
+{% if post.desc %}<p class="text-gray-300">{{ post.desc }}</p>{% endif %}
+{% endpartialdef main %}
+{% block content %}
+{% partial main %}
+{% endblock content %}

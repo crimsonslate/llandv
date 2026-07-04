@@ -1,0 +1,14 @@
+{% extends "portfolio/layout.html" %}
+{% load static %}
+{% block title %}home{% endblock title %}
+{% partialdef main %}
+<div class="w-full relative">
+    <img class="object-cover" src="{% static 'llandv/img/hero.jpg' %}" alt="">
+    <p class="absolute top-0 bg-linear-to-b from-gray-800/80 to-invisible py-4 w-full">can't miss a shot....ever</p>
+</div>
+<div>
+</div>
+{% endpartialdef main %}
+{% block content %}
+{% partial main %}
+{% endblock content %}

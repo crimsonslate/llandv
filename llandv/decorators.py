@@ -1,6 +1,6 @@
 import functools
-from django.http import HttpRequest as HttpRequestBase
 from django.http import HttpResponse
+from django.http import HttpRequest as HttpRequestBase
 
 __all__ = ["htmx_template"]
 
@@ -18,7 +18,9 @@ def is_htmx_request(request: HttpRequest) -> bool:
 def htmx_template(template_name: str):
     def outer_wrapper(view_func):
         @functools.wraps(view_func)
-        def inner_wrapper(request: HttpRequest, *args, **kwargs) -> HttpResponse:
+        def inner_wrapper(
+            request: HttpRequest, *args, **kwargs
+        ) -> HttpResponse:
             if is_htmx_request(request):
                 request.template_name = template_name + "#main"
             else:

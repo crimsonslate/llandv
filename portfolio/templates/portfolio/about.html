@@ -1,0 +1,13 @@
+{% extends "portfolio/layout.html" %}
+{% block title %}about{% endblock title %}
+{% partialdef main %}
+<div class="flex flex-col gap-2">
+    <p class="indent-4">{% lorem %}</p>
+    <p class="indent-4">{% lorem %}</p>
+    <p class="indent-4">{% lorem %}</p>
+    <p class="indent-4">{% lorem %}</p>
+</div>
+{% endpartialdef main %}
+{% block content %}
+{% partial main %}
+{% endblock content %}
