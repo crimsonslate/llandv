@@ -1,18 +1,37 @@
 {% extends "portfolio/layout.html" %}
 {% block title %}contact{% endblock title %}
 {% partialdef main %}
-<form class="@container flex flex-col gap-8" hx-get="{% url 'portfolio:contact form' %}" hx-target="this" hx-trigger="load once" hx-swap="outerHTML">
+<form class="@container flex flex-col gap-8" hx-post="{% url 'portfolio:contact form' %}" hx-swap="outerHTML">
+    {% csrf_token %}
     <div class="flex flex-col gap-4 min-w-0">
-        <div class="px-4 py-8 bg-gray-800 animate-pulse w-full"></div>
+        <div class="*:peer *:p-2 *:w-full *:bg-gray-600 *:border-y *:border-gray-500">{{ form.name }}</div>
+        <label for="{{ form.name.id_for_label }}" class="order-first font-semibold">name</label>
+        {% if form.name.errors %}
+        <div>
+            <p>{{ form.name.errors }}</p>
+        </div>
+        {% endif %}
     </div>
     <div class="flex flex-col gap-4 min-w-0">
-        <div class="px-4 py-8 bg-gray-800 animate-pulse w-full"></div>
+        <div class="*:peer *:p-2 *:w-full *:bg-gray-600 *:border-y *:border-gray-500">{{ form.email }}</div>
+        <label for="{{ form.email.id_for_label }}" class="order-first font-semibold">email</label>
+        {% if form.email.errors %}
+        <div>
+            <p>{{ form.email.errors }}</p>
+        </div>
+        {% endif %}
     </div>
     <div class="flex flex-col gap-4 min-w-0">
-        <div class="px-4 py-8 bg-gray-800 animate-pulse w-full"></div>
+        <div class="*:peer *:p-2 *:w-full *:bg-gray-600 *:border-y *:border-gray-500">{{ form.message }}</div>
+        <label for="{{ form.message.id_for_label }}" class="order-first font-semibold">message</label>
+        {% if form.message.errors %}
+        <div>
+            <p>{{ form.message.errors }}</p>
+        </div>
+        {% endif %}
     </div>
     <div class="min-w-0">
-        <div class="px-4 py-8 bg-gray-800 animate-pulse w-full"></div>
+        <button type="submit" class="px-8 py-4 w-full bg-gray-800 cursor-pointer transition-colors ease-in-out duration-300 hover:bg-gray-500">send</button>
     </div>
 </form>
 {% endpartialdef main %}

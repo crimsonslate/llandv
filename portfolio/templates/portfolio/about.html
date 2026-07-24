@@ -1,12 +1,24 @@
 {% extends "portfolio/layout.html" %}
 {% block title %}about{% endblock title %}
 {% partialdef main %}
-<div class="flex flex-col gap-2">
-    <p class="indent-4">{% lorem %}</p>
-    <p class="indent-4">{% lorem %}</p>
-    <p class="indent-4">{% lorem %}</p>
-    <p class="indent-4">{% lorem %}</p>
-</div>
+<article class="@container flex flex-col gap-16">
+    <section class="flex flex-col gap-8">
+        <p class="">who is llandv</p>
+        <p class="text-lg">{% lorem %}</p>
+    </section>
+    <section class="flex flex-col gap-8">
+        <p>what is llandv</p>
+        <p class="text-lg">{% lorem %}</p>
+    </section>
+    <section class="flex flex-col gap-8">
+        <p>why is llandv</p>
+        <p class="text-lg">{% lorem %}</p>
+    </section>
+    <section class="flex flex-col gap-8">
+        <p>where is llandv</p>
+        <p class="text-lg">{% lorem %}</p>
+    </section>
+</article>
 {% endpartialdef main %}
 {% block content %}
 {% partial main %}

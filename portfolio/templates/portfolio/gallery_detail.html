@@ -1,11 +1,13 @@
 {% extends "portfolio/layout.html" %}
 {% block title %}{{ gallery.name|lower }}{% endblock title %}
 {% partialdef main %}
-<h3 class="text-3xl mb-4">{{ gallery.name|lower }}</h3>
-<p class="text-xl mb-4">{{ gallery.desc }}</p>
-<div class="@container flex flex-col gap-2 @md:grid @md:grid-cols-2">
+<div class="mb-8">
+    <h3 class="text-6xl font-semibold tracking-wide text-right md:text-8xl">{{ gallery.name|lower }}</h3>
+    <p class="text-lg md:text-2xl">{{ gallery.desc }}</p>
+</div>
+<div class="@container flex flex-col gap-8">
     {% for post in posts %}
-    <a href="{% url 'portfolio:post' gallery_pk=gallery.pk gallery_slug=gallery.slug post_pk=post.pk %}">
+    <a href="{% url 'portfolio:post detail' gallery_pk=gallery.pk gallery_slug=gallery.slug post_pk=post.pk %}">
         <img class="max-h-64 w-full object-cover" src="{{ post.file.url }}">
         <p class="sr-only">{{ post.caption }}</p>
     </a>

@@ -2,12 +2,13 @@
 {% load static %}
 {% block title %}home{% endblock title %}
 {% partialdef main %}
-<div class="w-full relative">
-    <img class="object-cover" src="{% static 'llandv/img/hero.jpg' %}" alt="">
-    <p class="absolute top-0 bg-linear-to-b from-gray-800/80 to-invisible py-4 w-full">can't miss a shot....ever</p>
+<div class="relative">
+    <img class="" src="{% static 'llandv/img/hero.jpg' %}">
+    <div class="absolute top-0 right-0 text-right">
+        <p class="text-6xl font-semibold tracking-wide text-center md:text-8xl ">llandv</p>
+    </div>
 </div>
-<div>
-</div>
+<div class="mt-8 flex flex-col gap-8" hx-get="{% url 'portfolio:gallery list' %}" hx-target="this" hx-swap="innerHTML" hx-trigger="load once"></div>
 {% endpartialdef main %}
 {% block content %}
 {% partial main %}
