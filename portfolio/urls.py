@@ -13,14 +13,15 @@ urlpatterns = [
         views.contact_form_success_view,
         name="contact form success",
     ),
+    path("galleries/list/", views.gallery_list_view, name="gallery list"),
     path(
         "galleries/<int:gallery_pk>.<str:gallery_slug>/",
-        views.gallery_view,
-        name="gallery",
+        views.gallery_detail_view,
+        name="gallery detail",
     ),
     path(
         "galleries/<int:gallery_pk>.<str:gallery_slug>/<int:post_pk>/",
-        views.post_view,
-        name="post",
+        views.post_detail_view,
+        name="post detail",
     ),
 ]
