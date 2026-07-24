@@ -1,0 +1,32 @@
+[
+    {
+        "model": "portfolio.gallery",
+        "pk": 1,
+        "fields": {
+            "name": "Test Gallery #1",
+            "desc": "You're reading Test Gallery #1's description.",
+            "slug": "test-gallery-1",
+            "pub_date": "2026-07-22"
+        }
+    },
+    {
+        "model": "portfolio.gallery",
+        "pk": 2,
+        "fields": {
+            "name": "Test Gallery #2",
+            "desc": "You're reading Test Gallery #2's description.",
+            "slug": "test-gallery-2",
+            "pub_date": "2026-07-22"
+        }
+    },
+    {
+        "model": "portfolio.gallery",
+        "pk": 3,
+        "fields": {
+            "name": "Test Gallery #3",
+            "desc": "",
+            "slug": "test-gallery-3",
+            "pub_date": "2026-07-22"
+        }
+    }
+]

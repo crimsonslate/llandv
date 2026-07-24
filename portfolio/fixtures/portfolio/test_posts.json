@@ -1,0 +1,255 @@
+[
+    {
+        "model": "portfolio.post",
+        "pk": 2,
+        "fields": {
+            "gallery": 1,
+            "file": "DSC03065-2.jpg",
+            "caption": "big casino keem b&w",
+            "desc": "",
+            "sort_order": 2
+        }
+    },
+    {
+        "model": "portfolio.post",
+        "pk": 3,
+        "fields": {
+            "gallery": 1,
+            "file": "DSC03119.jpg",
+            "caption": "b&w keem center stage mid-performance, holding a microphone as a spotlight illuminates him ahead of the camera",
+            "desc": "",
+            "sort_order": 3
+        }
+    },
+    {
+        "model": "portfolio.post",
+        "pk": 4,
+        "fields": {
+            "gallery": 1,
+            "file": "DSC03141.jpg",
+            "caption": "keem devlishly posing in a red outfit mid-performance while smoke gently curls around him",
+            "desc": "",
+            "sort_order": 4
+        }
+    },
+    {
+        "model": "portfolio.post",
+        "pk": 5,
+        "fields": {
+            "gallery": 1,
+            "file": "DSC03183-2.jpg",
+            "caption": "b&w keem crouched at the edge of the stage, his ice glitters against the sharp constrast",
+            "desc": "",
+            "sort_order": 5
+        }
+    },
+    {
+        "model": "portfolio.post",
+        "pk": 6,
+        "fields": {
+            "gallery": 1,
+            "file": "DSC03206_DnLcokY.jpg",
+            "caption": "b&w keem mischeviously glaring into the camera",
+            "desc": "",
+            "sort_order": 1
+        }
+    },
+    {
+        "model": "portfolio.post",
+        "pk": 7,
+        "fields": {
+            "gallery": 1,
+            "file": "DSC03251-2.jpg",
+            "caption": "b&w keem standing imposingly center stage during his performance",
+            "desc": "",
+            "sort_order": 6
+        }
+    },
+    {
+        "model": "portfolio.post",
+        "pk": 8,
+        "fields": {
+            "gallery": 1,
+            "file": "DSC03259.jpg",
+            "caption": "full color keem taking a breather in a striking red shirt",
+            "desc": "",
+            "sort_order": 7
+        }
+    },
+    {
+        "model": "portfolio.post",
+        "pk": 9,
+        "fields": {
+            "gallery": 1,
+            "file": "DSC03302.jpg",
+            "caption": "full color keem hitting a pose in a red shirt under bright lights",
+            "desc": "",
+            "sort_order": 8
+        }
+    },
+    {
+        "model": "portfolio.post",
+        "pk": 10,
+        "fields": {
+            "gallery": 1,
+            "file": "DSC03326-2.jpg",
+            "caption": "full color keem spitting bars",
+            "desc": "",
+            "sort_order": 9
+        }
+    },
+    {
+        "model": "portfolio.post",
+        "pk": 11,
+        "fields": {
+            "gallery": 1,
+            "file": "DSC03330.jpg",
+            "caption": "b&w alt big casino keem",
+            "desc": "",
+            "sort_order": 10
+        }
+    },
+    {
+        "model": "portfolio.post",
+        "pk": 12,
+        "fields": {
+            "gallery": 1,
+            "file": "DSC03349.jpg",
+            "caption": "monocolor keyhole shot with keem framed by smoke and the darkness of the stage",
+            "desc": "",
+            "sort_order": 11
+        }
+    },
+    {
+        "model": "portfolio.post",
+        "pk": 13,
+        "fields": {
+            "gallery": 1,
+            "file": "DSC03369.jpg",
+            "caption": "full color keem performing a solo in what looks like the 1996 NBA Finals",
+            "desc": "",
+            "sort_order": 0
+        }
+    },
+    {
+        "model": "portfolio.post",
+        "pk": 14,
+        "fields": {
+            "gallery": 5,
+            "file": "IMG_1575.jpg",
+            "caption": "full color pr point tuh head",
+            "desc": "",
+            "sort_order": 1
+        }
+    },
+    {
+        "model": "portfolio.post",
+        "pk": 15,
+        "fields": {
+            "gallery": 5,
+            "file": "IMG_1730-2.jpg",
+            "caption": "monocolor distorted raging pr",
+            "desc": "",
+            "sort_order": 0
+        }
+    },
+    {
+        "model": "portfolio.post",
+        "pk": 16,
+        "fields": {
+            "gallery": 5,
+            "file": "IMG_1683.jpg",
+            "caption": "full color pr point tuh chest",
+            "desc": "",
+            "sort_order": 2
+        }
+    },
+    {
+        "model": "portfolio.post",
+        "pk": 17,
+        "fields": {
+            "gallery": 5,
+            "file": "IMG_1662.jpg",
+            "caption": "full color ragers raging mid performance",
+            "desc": "",
+            "sort_order": 3
+        }
+    },
+    {
+        "model": "portfolio.post",
+        "pk": 18,
+        "fields": {
+            "gallery": 5,
+            "file": "IMG_1640.jpg",
+            "caption": "full color muscle man-esque shirt waving",
+            "desc": "",
+            "sort_order": 4
+        }
+    },
+    {
+        "model": "portfolio.post",
+        "pk": 19,
+        "fields": {
+            "gallery": 5,
+            "file": "IMG_1555.jpg",
+            "caption": "full color outside crowd interactions",
+            "desc": "",
+            "sort_order": 5
+        }
+    },
+    {
+        "model": "portfolio.post",
+        "pk": 20,
+        "fields": {
+            "gallery": 5,
+            "file": "IMG_1487.jpg",
+            "caption": "full color inside shot with phone camera in the shot",
+            "desc": "",
+            "sort_order": 6
+        }
+    },
+    {
+        "model": "portfolio.post",
+        "pk": 21,
+        "fields": {
+            "gallery": 5,
+            "file": "IMG_1477.jpg",
+            "caption": "full color br cover eyes",
+            "desc": "",
+            "sort_order": 7
+        }
+    },
+    {
+        "model": "portfolio.post",
+        "pk": 22,
+        "fields": {
+            "gallery": 5,
+            "file": "IMG_1348.jpg",
+            "caption": "full color sparkler party mid performance",
+            "desc": "",
+            "sort_order": 8
+        }
+    },
+    {
+        "model": "portfolio.post",
+        "pk": 23,
+        "fields": {
+            "gallery": 5,
+            "file": "IMG_1379.jpg",
+            "caption": "full color crowd hype",
+            "desc": "",
+            "sort_order": 9
+        }
+    },
+    {
+        "model": "portfolio.post",
+        "pk": 24,
+        "fields": {
+            "gallery": 5,
+            "file": "IMG_1346.jpg",
+            "caption": "full color pure joy",
+            "desc": "",
+            "sort_order": 10
+        }
+    }
+]
