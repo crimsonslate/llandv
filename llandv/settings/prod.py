@@ -7,7 +7,7 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 
 DEBUG = False
 
-ALLOWED_HOSTS = ["localhost", ".llandv.com", "llandv.com"]
+ALLOWED_HOSTS = [".llandv.com", "llandv.com"]
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -17,6 +17,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django.forms",
+    "formset",
+    "ordered_model",
     "portfolio.apps.PortfolioConfig",
 ]
 
@@ -27,8 +29,8 @@ MIDDLEWARE = [
     "django.middleware.common.CommonMiddleware",
     "django.middleware.cache.FetchFromCacheMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
-    "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
@@ -141,8 +143,9 @@ STORAGES = {
 
 CACHES = {
     "default": {
-        "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": "redis://127.0.0.1:6379/1",
+        "BACKEND": "django.core.cache.backends.dummy.DummyCache"
+        # "BACKEND": "django_redis.cache.RedisCache",
+        # "LOCATION": "redis://127.0.0.1:6379/1",
     }
 }
 
@@ -151,3 +154,5 @@ CACHE_MIDDLEWARE_ALIAS = "default"
 CACHE_MIDDLEWARE_SECONDS = 60 * 15
 
 CACHE_MIDDLEWARE_KEY_PREFIX = ""
+
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")

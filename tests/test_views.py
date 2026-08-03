@@ -3,8 +3,6 @@ from django.urls import reverse
 
 
 class HomeViewTestCase(TestCase):
-    fixtures = ["portfolio/test_galleries.json", "portfolio/test_posts.json"]
-
     def setUp(self):
         self.location = reverse("portfolio:home")
         self.client = Client()

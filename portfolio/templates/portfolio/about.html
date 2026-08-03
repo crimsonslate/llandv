@@ -1,22 +1,23 @@
 {% extends "portfolio/layout.html" %}
+{% load static %}
 {% block title %}about{% endblock title %}
 {% partialdef main %}
 <article class="@container flex flex-col gap-16">
     <section class="flex flex-col gap-8">
-        <p class="">who is llandv</p>
-        <p class="text-lg">{% lorem %}</p>
+        <img src="{% static 'llandv/img/headshot.jpg' %}">
+        <h3 class="text-6xl font-semibold tracking-wide md:text-8xl">who is llandv</h3>
+        <p class="text-lg md:text-2xl">Bryce Nall is a Houston, Texas based filmmaker and photographer focusing on live events and marketing content. In 2026, he graduated from the University of Texas at Austin with a bachelor's degree in Radio-Television-Film. Professionally, Bryce works as the Video Marketing & Content Specialist at <a rel="nofollow" href="https://www.showboxexhibits.com/" class="underline">ShowBox Exhibits</a>. You can find him on <a rel="nofollow" href="https://www.instagram.com/llan.dv/" class="underline">Instagram</a>, <a rel="nofollow" href="https://www.tiktok.com/@llan.dv" class="underline">TikTok</a> and <a rel="nofollow" href="https://www.youtube.com/@LLANDV" class="underline">YouTube</a>.</p>
     </section>
     <section class="flex flex-col gap-8">
-        <p>what is llandv</p>
-        <p class="text-lg">{% lorem %}</p>
+        <img src="{% static 'llandv/img/favorite_0.jpg' %}">
+        <h3 class="text-6xl font-semibold tracking-wide md:text-8xl">what is llandv</h3>
+        <p class="text-lg md:text-2xl">llan + dv. llan is Nall backwards, dv is digital video.</p>
+        <p class="text-lg md:text-2xl">Bryce is a filmmaker at heart, all of his media work is performed with the intensity and passion of a Hollywood director. He primarily focuses on media coverage for live events, particularly concerts, trade shows and conventions. Bryce is also a 3D artist, integrating his 3D art into videography and photography work when required.</p>
     </section>
     <section class="flex flex-col gap-8">
-        <p>why is llandv</p>
-        <p class="text-lg">{% lorem %}</p>
-    </section>
-    <section class="flex flex-col gap-8">
-        <p>where is llandv</p>
-        <p class="text-lg">{% lorem %}</p>
+        <img src="{% static 'llandv/img/favorite_1.jpg' %}">
+        <h3 class="text-6xl font-semibold tracking-wide md:text-8xl">where is llandv</h3>
+        <p class="text-lg md:text-2xl">Houston, Texas. Email <a href="mailto:bryce@llandv.com" class="underline">bryce@llandv.com</a>. Follow on all socials.</p>
     </section>
 </article>
 {% endpartialdef main %}

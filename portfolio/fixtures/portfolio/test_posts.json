@@ -135,7 +135,7 @@
         "model": "portfolio.post",
         "pk": 14,
         "fields": {
-            "gallery": 5,
+            "gallery": 3,
             "file": "IMG_1575.jpg",
             "caption": "full color pr point tuh head",
             "desc": "",
@@ -146,7 +146,7 @@
         "model": "portfolio.post",
         "pk": 15,
         "fields": {
-            "gallery": 5,
+            "gallery": 3,
             "file": "IMG_1730-2.jpg",
             "caption": "monocolor distorted raging pr",
             "desc": "",
@@ -157,7 +157,7 @@
         "model": "portfolio.post",
         "pk": 16,
         "fields": {
-            "gallery": 5,
+            "gallery": 3,
             "file": "IMG_1683.jpg",
             "caption": "full color pr point tuh chest",
             "desc": "",
@@ -168,7 +168,7 @@
         "model": "portfolio.post",
         "pk": 17,
         "fields": {
-            "gallery": 5,
+            "gallery": 3,
             "file": "IMG_1662.jpg",
             "caption": "full color ragers raging mid performance",
             "desc": "",
@@ -179,7 +179,7 @@
         "model": "portfolio.post",
         "pk": 18,
         "fields": {
-            "gallery": 5,
+            "gallery": 3,
             "file": "IMG_1640.jpg",
             "caption": "full color muscle man-esque shirt waving",
             "desc": "",
@@ -190,7 +190,7 @@
         "model": "portfolio.post",
         "pk": 19,
         "fields": {
-            "gallery": 5,
+            "gallery": 3,
             "file": "IMG_1555.jpg",
             "caption": "full color outside crowd interactions",
             "desc": "",
@@ -201,7 +201,7 @@
         "model": "portfolio.post",
         "pk": 20,
         "fields": {
-            "gallery": 5,
+            "gallery": 3,
             "file": "IMG_1487.jpg",
             "caption": "full color inside shot with phone camera in the shot",
             "desc": "",
@@ -212,7 +212,7 @@
         "model": "portfolio.post",
         "pk": 21,
         "fields": {
-            "gallery": 5,
+            "gallery": 3,
             "file": "IMG_1477.jpg",
             "caption": "full color br cover eyes",
             "desc": "",
@@ -223,7 +223,7 @@
         "model": "portfolio.post",
         "pk": 22,
         "fields": {
-            "gallery": 5,
+            "gallery": 3,
             "file": "IMG_1348.jpg",
             "caption": "full color sparkler party mid performance",
             "desc": "",
@@ -234,7 +234,7 @@
         "model": "portfolio.post",
         "pk": 23,
         "fields": {
-            "gallery": 5,
+            "gallery": 3,
             "file": "IMG_1379.jpg",
             "caption": "full color crowd hype",
             "desc": "",
@@ -245,7 +245,7 @@
         "model": "portfolio.post",
         "pk": 24,
         "fields": {
-            "gallery": 5,
+            "gallery": 3,
             "file": "IMG_1346.jpg",
             "caption": "full color pure joy",
             "desc": "",

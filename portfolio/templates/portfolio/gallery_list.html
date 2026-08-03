@@ -4,10 +4,10 @@
 {% for gallery in gallery_list %}
 <a href="{{ gallery.get_absolute_url }}">
     <div class="relative">
-        <img class="max-h-64 w-full object-cover" src="{{ gallery.get_thumbnail_url_for_first_post }}">
-        <div class="py-4 px-2 absolute top-0 right-0 text-right bg-gray-800 rounded-bl">
+        <img class="max-h-64 w-full object-cover" src="{{ gallery.get_thumbnail_url }}">
+        <div class="p-4 -mx-4 absolute top-0 bg-gray-800 rounded-br">
             <p class="text-xl font-semibold text-gray-200">{{ gallery.name|lower }}</p>
-            <p class="text-lg text-gray-300">{{ gallery.pub_date }}</p>
+            <p class="text-lg text-gray-300">{{ gallery.pub_date|date|lower }}</p>
         </div>
     </div>
 </a>

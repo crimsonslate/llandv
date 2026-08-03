@@ -64,7 +64,7 @@ def contact_form_success_view(request: HttpRequest) -> HttpResponse:
 @require_GET
 @htmx_template("portfolio/gallery_list.html")
 def gallery_list_view(request: HttpRequest) -> HttpResponse:
-    gallery_list = Gallery.objects.get_all_ordered_by_pub_date_ascending()
+    gallery_list = Gallery.objects.visible()
     return TemplateResponse(
         request, request.template_name, {"gallery_list": gallery_list}
     )
@@ -77,7 +77,9 @@ def gallery_list_view(request: HttpRequest) -> HttpResponse:
 def gallery_detail_view(
     request: HttpRequest, gallery_pk: int, gallery_slug: str
 ) -> HttpResponse:
-    gallery = get_object_or_404(Gallery, pk=gallery_pk, slug=gallery_slug)
+    gallery = get_object_or_404(
+        Gallery.objects.visible(), pk=gallery_pk, slug=gallery_slug
+    )
     return TemplateResponse(
         request,
         request.template_name,
@@ -92,7 +94,9 @@ def gallery_detail_view(
 def post_detail_view(
     request: HttpRequest, gallery_pk: int, gallery_slug: str, post_pk: int
 ) -> HttpResponse:
-    gallery = get_object_or_404(Gallery, pk=gallery_pk, slug=gallery_slug)
+    gallery = get_object_or_404(
+        Gallery.objects.visible(), pk=gallery_pk, slug=gallery_slug
+    )
     post = get_object_or_404(gallery.posts.filter(), pk=post_pk)
     return TemplateResponse(
         request, request.template_name, {"gallery": gallery, "post": post}

@@ -1,9 +1,10 @@
 {% extends "portfolio/layout.html" %}
 {% block title %}{{ gallery.name|lower }}{% endblock title %}
 {% partialdef main %}
-<div class="mb-8">
-    <h3 class="text-6xl font-semibold tracking-wide text-right md:text-8xl">{{ gallery.name|lower }}</h3>
-    <p class="text-lg md:text-2xl">{{ gallery.desc }}</p>
+<div class="mb-8 flex flex-col">
+    <h3 class="text-6xl font-semibold text-gray-200 tracking-wide md:text-8xl">{{ gallery.name|lower }}</h3>
+    <p class="text-lg text-gray-300 md:text-2xl">{{ gallery.desc|lower }}</p>
+    <p class="text-lg text-gray-400 md:text-2xl">shot on {{ gallery.pub_date|date|lower }}</p>
 </div>
 <div class="@container flex flex-col gap-8">
     {% for post in posts %}

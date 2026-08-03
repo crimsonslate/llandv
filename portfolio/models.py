@@ -6,14 +6,15 @@ from ordered_model.models import OrderedModel, OrderedModelBase
 
 
 class GalleryQuerySet(models.QuerySet):
-    def get_all_ordered_by_pub_date_ascending(self):
-        return self.order_by("pub_date")
+    def visible(self):
+        return self.exclude(hidden=True)
 
 
 class Gallery(models.Model):
     name = models.CharField(max_length=256, unique=True)
     desc = models.TextField(blank=True, max_length=2048)
     slug = models.SlugField()
+    hidden = models.BooleanField(default=False)
     pub_date = models.DateField(default=date.today)
     objects = GalleryQuerySet.as_manager()
 
@@ -31,9 +32,9 @@ class Gallery(models.Model):
             kwargs={"gallery_pk": self.pk, "gallery_slug": self.slug},
         )
 
-    def get_thumbnail_url_for_first_post(self):
+    def get_thumbnail_url(self) -> str | None:
         if self.posts.count() > 0:
-            return self.posts.get_queryset().first().file.url
+            return self.posts.first().file.url
 
 
 class Post(OrderedModelBase):
