@@ -2,6 +2,7 @@
 !.gitignore
 !.python-version
 !.dockerignore
+!.github/workflows/
 
 __pycache__/
 dist/
