@@ -172,7 +172,7 @@ deploy = [
     { name = "psycopg" },
     { name = "psycopg2-binary" },
 ]
-test = [
+dev = [
     { name = "pytest" },
     { name = "pytest-django" },
 ]
@@ -194,7 +194,7 @@ deploy = [
     { name = "psycopg", specifier = ">=3.3.4" },
     { name = "psycopg2-binary", specifier = ">=2.9.12" },
 ]
-test = [
+dev = [
     { name = "pytest", specifier = ">=9.1.1" },
     { name = "pytest-django", specifier = ">=4.12.0" },
 ]
