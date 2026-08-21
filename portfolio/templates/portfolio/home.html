@@ -2,16 +2,17 @@
 {% load static %}
 {% block title %}home{% endblock title %}
 {% partialdef main %}
-<div class="relative">
-    <img class="" src="{% static 'llandv/img/hero.jpg' %}">
-    <div class="absolute top-0 right-0 text-right">
-        <p class="text-6xl font-semibold tracking-wide text-center md:text-8xl">llandv</p>
+<article title="llandv home" class="relative">
+    <img alt="Performer pointing upwards in front of a concert crowd" src="{% static 'llandv/img/hero.jpg' %}" height="5480" width="4000">
+    <div class="absolute p-8 bg-linear-to-b from-gray-700 to-invisible inset-x-0 top-0 flex flex-col items-center">
+        <img alt="llandv logo, blue vhs tape with 'llanDV' written on the front" src="{% static 'llandv/img/logo.svg' %}" class="size-36 md:size-48">
+        <h1 class="text-6xl font-semibold tracking-wide text-center md:text-8xl">llandv</h2>
     </div>
-</div>
-<div class="mt-16 flex flex-col gap-4">
-    <p class="text-3xl font-semibold tracking-wide md:text-6xl">latest work</p>
+</article>
+<article title="latest work" class="mt-16 flex flex-col gap-4">
+    <h2 class="text-3xl font-semibold tracking-wide md:text-6xl">latest work</h2>
     <div class="flex flex-col gap-8" hx-get="{% url 'portfolio:gallery list' %}" hx-target="this" hx-swap="innerHTML" hx-trigger="load once"></div>
-</div>
+</article>
 {% endpartialdef main %}
 {% block content %}
 {% partial main %}
