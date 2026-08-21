@@ -2,7 +2,7 @@ import functools
 from django.http import HttpResponse
 from django.http import HttpRequest as HttpRequestBase
 
-__all__ = ["htmx_template"]
+__all__ = ["HttpRequest", "htmx_template"]
 
 
 class HttpRequest(HttpRequestBase):

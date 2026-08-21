@@ -6,6 +6,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="description" content="official llandv website">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="preload" href="{% static 'llandv/css/output.css' %}" as="style">
+        <link rel="preload" href="{% static 'llandv/js/htmx.min.js' %}" as="script">
         <link rel="stylesheet" href="{% static 'llandv/css/output.css' %}">
         <script src="{% static 'llandv/js/htmx.min.js' %}" defer></script>
         <title>{% block title %}{% endblock title %} // llandv</title>
@@ -16,14 +18,14 @@
                 <div class="mx-2 py-8 flex justify-between items-center">
                     <a href="{% url 'portfolio:home' %}" hx-boost="true">
                         <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 bg-gray-900 animate-pulse"></div>
+                            <img class="size-12" src="{% static 'llandv/img/logo.svg' %}">
                             <div class="tracking-widest">
                                 <p class="font-semibold">llandv.com</p>
                                 <p class="text-gray-300">digital video</p>
                             </div>
                         </div>
                     </a>
-                    <div>
+                    <div class="text-lg flex gap-2">
                         <a href="{% url 'portfolio:about' %}" hx-boost="true" class="underline hover:text-gray-100">about</a>
                         <a href="{% url 'portfolio:contact' %}" hx-boost="true" class="underline hover:text-gray-100">contact</a>
                     </div>

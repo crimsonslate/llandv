@@ -1,1 +1,19 @@
 @import "tailwindcss";
+
+@theme {
+    --animate-coin: coin 4s linear infinite;
+}
+
+@keyframes coin {
+    0% {
+        transform: rotateY(0deg);
+    }
+
+    50% {
+        transform: rotateY(90deg);
+    }
+
+    100% {
+        transform: rotateY(0deg);
+    }
+}
