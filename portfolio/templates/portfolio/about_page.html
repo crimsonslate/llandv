@@ -1,0 +1,11 @@
+{% extends "portfolio/layout.html" %}
+{% load static wagtailcore_tags wagtailimages_tags %}
+{% block title %}about{% endblock title %}
+{% partialdef main %}
+<article class="mt-8 flex flex-col gap-4 [&_h2]:text-6xl [&_h2]:font-semibold [&_h2]:tracking-wide [&_h2]:mb-4 [&_h2]:md:text-8xl [&_p]:text-xl [&_p]:md:text-3xl [&_a]:underline [&_img]:w-full">
+    {{ page.body|richtext }}
+</article>
+{% endpartialdef main %}
+{% block content %}
+{% partial main %}
+{% endblock content %}

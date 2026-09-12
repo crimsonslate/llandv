@@ -1,13 +1,12 @@
 [project]
 name = "llandv"
 version = "0.1.0"
-requires-python = ">=3.14"
+requires-python = ">=3.13"
 dependencies = [
     "django>=6.0.6",
-    "django-formset>=2.2.4",
-    "django-ordered-model>=3.7.4",
     "django-storages[s3]>=1.14.6",
     "pillow>=12.3.0",
+    "wagtail>=8.0",
 ]
 
 [tool.pyright]
@@ -31,7 +30,7 @@ exclude = [
 ]
 line-length = 79
 indent-width = 4
-target-version = "py314"
+target-version = "py313"
 
 [tool.ruff.lint]
 select = ["E4", "E7", "E9", "F", "DJ"]

@@ -1,81 +1,67 @@
 from django.db import models
-from django.urls import reverse
-from datetime import date
 from django.utils.translation import gettext_lazy as _
-from ordered_model.models import OrderedModel, OrderedModelBase
+
+from wagtail.models import Page
+from wagtail.admin.panels import FieldPanel, MultiFieldPanel
+from wagtail.fields import RichTextField
+from wagtail.contrib.settings.models import (
+    register_setting,
+    BaseGenericSetting,
+)
 
 
-class GalleryQuerySet(models.QuerySet):
-    def visible(self):
-        return self.exclude(hidden=True)
-
-
-class Gallery(models.Model):
-    name = models.CharField(max_length=256, unique=True)
-    desc = models.TextField(blank=True, max_length=2048)
-    slug = models.SlugField()
-    hidden = models.BooleanField(default=False)
-    pub_date = models.DateField(default=date.today)
-    objects = GalleryQuerySet.as_manager()
-
-    class Meta:
-        verbose_name = _("gallery")
-        verbose_name_plural = _("galleries")
-        ordering = ("pub_date",)
-
-    def __str__(self) -> str:
-        return self.name
-
-    def get_absolute_url(self) -> str:
-        return reverse(
-            "portfolio:gallery detail",
-            kwargs={"gallery_pk": self.pk, "gallery_slug": self.slug},
-        )
-
-    def get_thumbnail_url(self) -> str | None:
-        if self.posts.count() > 0:
-            return self.posts.first().file.url
-
-
-class Post(OrderedModelBase):
-    gallery = models.ForeignKey(
-        "portfolio.Gallery", on_delete=models.CASCADE, related_name="posts"
+@register_setting
+class NavigationSettings(BaseGenericSetting):
+    instagram_url = models.URLField(
+        verbose_name=_("Instagram URL"), blank=True
     )
-    file = models.ImageField()
-    caption = models.CharField(max_length=256)
-    desc = models.TextField(blank=True, max_length=2048)
-    sort_order = models.PositiveIntegerField(editable=False, db_index=True)
-    order_field_name = "sort_order"
-    order_with_respect_to = "gallery"
+    tiktok_url = models.URLField(verbose_name=_("TikTok URL"), blank=True)
+    youtube_url = models.URLField(verbose_name=_("YouTube URL"), blank=True)
 
-    class Meta(OrderedModel.Meta):
-        verbose_name = _("post")
-        verbose_name_plural = _("posts")
-        ordering = ("gallery", "sort_order")
-
-    def __str__(self) -> str:
-        return self.caption
-
-    def get_absolute_url(self) -> str:
-        return reverse(
-            "portfolio:post detail",
-            kwargs={
-                "gallery_pk": self.gallery.pk,
-                "gallery_slug": self.gallery.slug,
-                "post_pk": self.pk,
-            },
+    panels = [
+        MultiFieldPanel(
+            [
+                FieldPanel("instagram_url"),
+                FieldPanel("tiktok_url"),
+                FieldPanel("youtube_url"),
+            ],
+            _("Social Settings"),
         )
+    ]
 
 
-class ContactResponse(models.Model):
-    name = models.CharField(max_length=64)
-    email = models.CharField(max_length=255)
-    message = models.TextField(max_length=2048)
-    pub_date = models.DateTimeField(auto_now_add=True)
+class HomePage(Page):
+    hero_image = models.ForeignKey(
+        "wagtailimages.Image",
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name="+",
+    )
 
-    class Meta:
-        verbose_name = _("contact response")
-        verbose_name_plural = _("contact responses")
+    promote_panels = [
+        MultiFieldPanel(Page.promote_panels, "Common page configuration"),
+        FieldPanel("hero_image"),
+    ]
 
-    def __str__(self) -> str:
-        return self.name
+
+class AboutPage(Page):
+    body = RichTextField()
+
+    content_panels = Page.content_panels + [FieldPanel("body")]
+
+    promote_panels = [
+        MultiFieldPanel(Page.promote_panels, "Common page configuration")
+    ]
+
+
+class GalleryIndexPage(Page):
+    pass
+
+
+class GalleryPage(Page):
+    pass
+
+
+class ContactPage(Page):
+    pass

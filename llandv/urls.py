@@ -3,12 +3,21 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include, path
 
+import wagtail.admin.urls
+import wagtail.documents.urls
+import wagtail.urls
+
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", include("portfolio.urls", namespace="portfolio")),
+    path("cms/", include(wagtail.admin.urls)),
+    path("documents/", include(wagtail.documents.urls)),
+    path("", include(wagtail.urls)),
 ]
 
 if settings.DEBUG:
     urlpatterns += static(
         settings.MEDIA_URL, document_root=settings.MEDIA_ROOT
+    )
+    urlpatterns += static(
+        settings.STATIC_URL, document_root=settings.STATIC_ROOT
     )
