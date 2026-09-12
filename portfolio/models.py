@@ -1,9 +1,12 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from datetime import datetime
 
 from wagtail.models import Page
+from wagtail.images.blocks import ImageBlock
+from wagtail.blocks import ListBlock
 from wagtail.admin.panels import FieldPanel, MultiFieldPanel
-from wagtail.fields import RichTextField
+from wagtail.fields import StreamField, RichTextField
 from wagtail.contrib.settings.models import (
     register_setting,
     BaseGenericSetting,
@@ -60,7 +63,15 @@ class GalleryIndexPage(Page):
 
 
 class GalleryPage(Page):
-    pass
+    parent_page_types = ["portfolio.GalleryIndexPage"]
+
+    pub_date = models.DateTimeField(default=datetime.now)
+    body = StreamField([("carousel", ListBlock(ImageBlock()))], blank=True)
+
+    content_panels = Page.content_panels + [
+        FieldPanel("pub_date"),
+        FieldPanel("body"),
+    ]
 
 
 class ContactPage(Page):
