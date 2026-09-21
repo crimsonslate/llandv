@@ -1,7 +1,21 @@
 {% extends "portfolio/layout.html" %}
-{% block title %}galleries{% endblock title %}
+{% load wagtailcore_tags wagtailimages_tags %}
 {% partialdef main %}
-{% for gallery in gallery_list %}
+{% for page in galleries %}
+    <a href="{% pageurl page %}">
+        <div class="relative">
+            {% image page.thumbnail max-2000x2000 class="max-h-96 w-full object-cover" %}
+            <div class="p-4 -mx-4 absolute top-0 bg-gray-800 rounded-br">
+                <p class="text-xl font-semibold text-gray-200">{{ page.title }}</p>
+                <p class="text-lg text-gray-300">{{ page.pub_date|date|lower }}</p>
+            </div>
+        </div>
+    </a>
+{% endfor %}
+{% endpartialdef main %}
+{% block content %}
+{% partial main %}
+{% endblock content %}
 <a href="{{ gallery.get_absolute_url }}">
     <div class="relative">
         <img class="max-h-64 w-full object-cover" src="{{ gallery.get_thumbnail_url }}">
@@ -11,10 +25,3 @@
         </div>
     </div>
 </a>
-{% empty %}
-<p>there's nothing here.</p>
-{% endfor %}
-{% endpartialdef main %}
-{% block content %}
-{% partial main %}
-{% endblock content %}

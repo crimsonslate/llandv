@@ -1,0 +1,22 @@
+{% load static wagtailcore_tags navigation_tags %}
+<header class="bg-linear-to-b from-gray-800 to-10% to-gray-700/80">
+    <nav class="mx-2">
+        {% get_site_root as site_root %}
+        <div class="mx-2 py-8 flex justify-between items-center">
+            <a href="{% pageurl site_root %}">
+                <div class="flex items-center gap-4">
+                    <img class="size-12" src="{% static 'llandv/img/logo.svg' %}">
+                    <div class="tracking-widest">
+                        <p class="font-semibold">llandv.com</p>
+                        <p class="text-gray-300">digital video</p>
+                    </div>
+                </div>
+            </a>
+            <div class="text-lg flex gap-2">
+            {% for menuitem in site_root.get_children.live.in_menu %}
+                <a href="{% pageurl menuitem %}" class="underline hover:text-gray-100">{{ menuitem.title }}</a>
+            {% endfor %}
+            </div>
+        </div>
+    </nav>
+</header>

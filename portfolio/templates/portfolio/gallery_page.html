@@ -1,20 +1,21 @@
 {% extends "portfolio/layout.html" %}
-{% load wagtailimages_tags %}
-{% block title %}{{ page.title|lower }}{% endblock title %}
-{% partialdef main %}
+{% load wagtailcore_tags wagtailimages_tags %}
+{% block content %}
 <div class="mb-8 flex flex-col">
-    <h3 class="text-6xl font-semibold text-gray-200 tracking-wide md:text-8xl">{{ page.title|lower }}</h3>
-    <p class="text-lg text-gray-300 md:text-2xl">{{ page.description|lower }}</p>
-    <p class="text-lg text-gray-400 md:text-2xl">shot on {{ page.pub_date|date|lower }}</p>
+    <h1 class="text-6xl font-semibold text-gray-200 tracking-wide md:text-8xl">{{ page.title|lower }}</h1>
+    <p class="text-lg text-gray-300 md:text-2xl">shot on {{ page.pub_date|date|lower }}</p>
+    <p class="text-lg text-gray-400 md:text-2xl">{{ page.description|lower }}</p>
 </div>
-<div class="@container flex flex-col gap-8">
-    {% for slide in page.carousel %}
-    <div class="*:max-h-64 *:w-full *:object-cover">{% image slide width-1000 %}</div>
-    {% empty %}
-    <p>there's nothing here.</p>
+<div class="@container flex flex-col">
+    {% for block in page.body %}
+        {% if block.block_type == "carousel" %}
+        {# this is where logic for carousel styles can go #}
+            {% for pic in block.value %}
+            <div class="w-full">
+                {% image pic width-2000 class="w-full object-cover" %}
+            </div>
+            {% endfor %}
+        {% endif %}
     {% endfor %}
 </div>
-{% endpartialdef main %}
-{% block content %}
-{% partial main %}
 {% endblock content %}
