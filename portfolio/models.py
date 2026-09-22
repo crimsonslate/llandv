@@ -3,7 +3,6 @@ from datetime import datetime
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from modelcluster.fields import ParentalKey
-from wagtail.contrib.forms.forms import FormBuilder
 from wagtail.contrib.forms.panels import FormSubmissionsPanel
 from wagtail.contrib.forms.models import AbstractEmailForm, AbstractFormField
 from wagtail.admin.panels import (
@@ -58,7 +57,11 @@ class HomePage(Page):
 
     def get_context(self, request, *args, **kwargs) -> dict:
         context = super().get_context(request, *args, **kwargs)
-        context["latest_galleries"] = []
+        context["latest_galleries"] = (
+            GalleryPage.objects.filter()[:5]
+            if GalleryPage.objects.count() > 0
+            else GalleryPage.objects.none()
+        )
         return context
 
 
@@ -73,16 +76,6 @@ class StandardPage(Page):
 
 
 class GalleryIndexPage(Page):
-    featured_gallery = models.ForeignKey(
-        "portfolio.GalleryPage",
-        null=True,
-        blank=True,
-        on_delete=models.SET_NULL,
-        related_name="+",
-    )
-
-    content_panels = Page.content_panels + [FieldPanel("featured_gallery")]
-
     promote_panels = [
         MultiFieldPanel(Page.promote_panels, "Common page configuration")
     ]
@@ -128,23 +121,6 @@ class FormField(AbstractFormField):
     page = ParentalKey(
         "FormPage", on_delete=models.CASCADE, related_name="form_fields"
     )
-    placeholder = models.CharField(blank=True, max_length=256)
-
-    panels = AbstractFormField.panels + [FieldPanel("placeholder")]
-
-
-class PortfolioFormBuilder(FormBuilder):
-    def get_create_field_function(self, type):
-        create_field_function = super().get_create_field_function(type)
-
-        def wrapped_create_field_function(field, options):
-            created_field = create_field_function(field, options)
-            created_field.widget.attrs.update(
-                {"placeholder": field.placeholder}
-            )
-            return created_field
-
-        return wrapped_create_field_function
 
 
 class FormPage(AbstractEmailForm):

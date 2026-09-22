@@ -1,15 +1,27 @@
 {% extends "portfolio/layout.html" %}
 {% load static wagtailcore_tags wagtailimages_tags %}
-{% block title %}home{% endblock title %}
-{% partialdef main %}
+{% block content %}
 <article title="llandv home" class="relative">
     <div class="*:w-full">{% image page.hero_image width-2000 %}</div>
     <div class="absolute p-8 bg-linear-to-b from-gray-700 to-invisible inset-x-0 top-0 flex flex-col items-center">
         <img alt="llandv logo, blue vhs tape with 'llanDV' written on the front" src="{% static 'llandv/img/logo.svg' %}" class="size-36 md:size-48">
         <h1 class="text-6xl font-semibold tracking-wide text-center md:text-8xl">llandv</h2>
     </div>
+    <div class="mt-16 flex flex-col gap-8">
+        <h2 class="text-6xl font-semibold tracking-wide md:text-8xl">latest work</h2>
+        <div class="">
+            {% for page in latest_galleries %}
+                <a href="{% pageurl page %}">
+                    <div class="relative">
+                        {% image page.thumbnail max-2000x2000 class="max-h-96 w-full object-cover" %}
+                        <div class="p-4 -mx-4 absolute top-0 bg-gray-800">
+                            <p class="text-xl font-semibold text-gray-200">{{ page.title }}</p>
+                            <p class="text-lg text-gray-300">{{ page.pub_date|date|lower }}</p>
+                        </div>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+    </div>
 </article>
-{% endpartialdef main %}
-{% block content %}
-{% partial main %}
 {% endblock content %}
