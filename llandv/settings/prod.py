@@ -10,6 +10,21 @@ DEBUG = False
 ALLOWED_HOSTS = [".llandv.com", "llandv.com"]
 
 INSTALLED_APPS = [
+    "portfolio.apps.PortfolioConfig",
+    "wagtail.contrib.forms",
+    "wagtail.contrib.redirects",
+    "wagtail.contrib.settings",
+    "wagtail.embeds",
+    "wagtail.sites",
+    "wagtail.users",
+    "wagtail.snippets",
+    "wagtail.documents",
+    "wagtail.images",
+    "wagtail.search",
+    "wagtail.admin",
+    "wagtail",
+    "modelcluster",
+    "taggit",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -17,21 +32,17 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django.forms",
-    "formset",
-    "ordered_model",
-    "portfolio.apps.PortfolioConfig",
 ]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
-    "django.middleware.cache.UpdateCacheMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
-    "django.middleware.cache.FetchFromCacheMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
-    "django.contrib.messages.middleware.MessageMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "wagtail.contrib.redirects.middleware.RedirectMiddleware",
 ]
 
 ROOT_URLCONF = "llandv.urls"
@@ -46,6 +57,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "wagtail.contrib.settings.context_processors.settings",
             ]
         },
     }
@@ -82,6 +94,25 @@ STATICFILES_DIRS = [BASE_DIR / "static"]
 MEDIA_ROOT = BASE_DIR / "media"
 
 MEDIA_URL = "media/"
+
+DATA_UPLOAD_MAX_NUMBER_FIELDS = 10_000
+
+WAGTAIL_SITE_NAME = "llandv"
+
+WAGTAILADMIN_BASE_URL = "https://llandv.com"
+
+WAGTAILDOCS_EXTENSIONS = [
+    "csv",
+    "docx",
+    "key",
+    "odt",
+    "pdf",
+    "pptx",
+    "rtf",
+    "txt",
+    "xlsx",
+    "zip",
+]
 
 SERVER_EMAIL = "server@llandv.com"
 
@@ -120,39 +151,32 @@ STORAGES = {
     "default": {
         "BACKEND": "storages.backends.s3.S3Storage",
         "OPTIONS": {
+            "access_key": os.getenv("AWS_ACCESS_KEY_ID"),
+            "secret_key": os.getenv("AWS_SECRET_ACCESS_KEY"),
             "bucket_name": "llandv-bucket",
             "location": "uploads/",
             "region_name": "us-east-1",
-            "access_key": os.getenv("AWS_ACCESS_KEY_ID"),
-            "secret_key": os.getenv("AWS_SECRET_ACCESS_KEY"),
-            "verify": os.getenv("AWS_CERT_PATH", False),
+            "verify": True,
         },
     },
     "staticfiles": {
         "BACKEND": "storages.backends.s3.S3Storage",
         "OPTIONS": {
+            "access_key": os.getenv("AWS_ACCESS_KEY_ID"),
+            "secret_key": os.getenv("AWS_SECRET_ACCESS_KEY"),
             "bucket_name": "llandv-bucket",
             "location": "static/",
             "region_name": "us-east-1",
-            "access_key": os.getenv("AWS_ACCESS_KEY_ID"),
-            "secret_key": os.getenv("AWS_SECRET_ACCESS_KEY"),
-            "verify": os.getenv("AWS_CERT_PATH", False),
+            "verify": True,
         },
     },
 }
 
 CACHES = {
     "default": {
-        "BACKEND": "django.core.cache.backends.dummy.DummyCache"
-        # "BACKEND": "django_redis.cache.RedisCache",
-        # "LOCATION": "redis://127.0.0.1:6379/1",
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://127.0.0.1:6379/1",
     }
 }
-
-CACHE_MIDDLEWARE_ALIAS = "default"
-
-CACHE_MIDDLEWARE_SECONDS = 60 * 15
-
-CACHE_MIDDLEWARE_KEY_PREFIX = ""
 
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
