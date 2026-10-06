@@ -1,5 +1,6 @@
 import logging
 import os
+import socket
 import sys
 from pathlib import Path
 
@@ -9,7 +10,14 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 
 DEBUG = False
 
-ALLOWED_HOSTS = [".llandv.com", "llandv.com"]
+ALLOWED_HOSTS = [
+    ".llandv.com",
+    "llandv.com",
+    ".elb.amazonaws.com",
+    ".s3.amazonaws.com",
+    ".awswaf.com",
+    socket.gethostbyname(socket.gethostname()),
+]
 
 INSTALLED_APPS = [
     "portfolio.apps.PortfolioConfig",
