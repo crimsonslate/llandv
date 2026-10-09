@@ -49,6 +49,7 @@ skip-magic-trailing-comma = true
 [dependency-groups]
 deploy = [
     "certifi>=2026.6.17",
+    "django-cors-headers>=4.9.0",
     "django-redis>=7.0.0",
     "gunicorn>=26.0.0",
     "psycopg>=3.3.4",
