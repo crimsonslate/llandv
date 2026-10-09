@@ -13,10 +13,7 @@ DEBUG = False
 ALLOWED_HOSTS = [
     ".llandv.com",
     "llandv.com",
-    ".elb.amazonaws.com",
-    ".s3.amazonaws.com",
-    ".awswaf.com",
-    socket.gethostbyname(socket.gethostname()),
+    "llandv-bucket.s3.amazonaws.com",
 ]
 
 INSTALLED_APPS = [
