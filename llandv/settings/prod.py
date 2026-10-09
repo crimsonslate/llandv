@@ -241,3 +241,9 @@ CORS_ALLOWED_ORIGINS = [
     "https://www.llandv.com",
     "https://demo.llandv.com",
 ]
+
+CSRF_ALLOWED_ORIGINS = [
+    "https://llandv.com",
+    "https://www.llandv.com",
+    "https://demo.llandv.com",
+]
