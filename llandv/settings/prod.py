@@ -237,3 +237,9 @@ SESSION_COOKIE_SECURE = True
 SECURE_SSL_REDIRECT = False
 
 USE_X_FORWARDED_HOST = True
+
+CORS_ALLOWED_ORIGINS = [
+    "https://llandv.com",
+    "https://www.llandv.com",
+    "https://demo.llandv.com",
+]
