@@ -167,7 +167,7 @@ logging.config.dictConfig(
                 "formatter": "generic",
             }
         },
-        "root": {"handlers": ["console"], "level": "INFO"},
+        "root": {"handlers": ["console"], "level": "WARNING"},
         "loggers": {
             "django.request": {
                 "handlers": ["console"],
@@ -177,7 +177,7 @@ logging.config.dictConfig(
             "gunicorn.error": {
                 "handlers": ["console"],
                 "level": "INFO",
-                "propagate": True,
+                "propagate": False,
             },
         },
     }
