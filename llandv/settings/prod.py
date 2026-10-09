@@ -14,6 +14,7 @@ ALLOWED_HOSTS = [
     ".llandv.com",
     "llandv.com",
     "llandv-bucket.s3.amazonaws.com",
+    socket.gethostbyname(socket.gethostname()),
 ]
 
 INSTALLED_APPS = [
