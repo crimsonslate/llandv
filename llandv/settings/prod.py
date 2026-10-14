@@ -202,7 +202,7 @@ STORAGES = {
             "region_name": "us-east-1",
             "querystring_auth": True,
             "querystring_expire": 3600,
-            "max_memory_size": 5(1024**2), # 5MB
+            "max_memory_size": 5 * 1024**2, # 5MB
             "verify": True,
         },
     },
