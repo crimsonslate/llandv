@@ -13,7 +13,6 @@ DEBUG = False
 ALLOWED_HOSTS = [
     ".llandv.com",
     "llandv.com",
-    "llandv-bucket.s3.amazonaws.com",
     socket.gethostbyname(socket.gethostname()),
 ]
 
@@ -203,6 +202,7 @@ STORAGES = {
             "region_name": "us-east-1",
             "querystring_auth": True,
             "querystring_expire": 3600,
+            "max_memory_size": 5(1024**2) # 5MB,
             "verify": True,
         },
     },
@@ -212,8 +212,8 @@ STORAGES = {
             "bucket_name": "llandv-bucket",
             "location": "static/",
             "region_name": "us-east-1",
-            "querystring_auth": True,
-            "querystring_expire": 3600,
+            "querystring_auth": False,
+            # "querystring_expire": 3600,
             "verify": True,
         },
     },
@@ -242,8 +242,4 @@ CORS_ALLOWED_ORIGINS = [
     "https://demo.llandv.com",
 ]
 
-CSRF_TRUSTED_ORIGINS = [
-    "https://llandv.com",
-    "https://www.llandv.com",
-    "https://demo.llandv.com",
-]
+CSRF_TRUSTED_ORIGINS = ["https://llandv.com", "https://*.llandv.com"]
