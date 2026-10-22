@@ -135,7 +135,7 @@ MAILERS = {
         "BACKEND": "django.core.mail.backends.smtp.EmailBackend",
         "OPTIONS": {
             "host": os.getenv("EMAIL_HOST"),
-            "user": os.getenv("EMAIL_HOST_USER"),
+            "username": os.getenv("EMAIL_HOST_USER"),
             "password": os.getenv("EMAIL_HOST_PASSWORD"),
             "fail_silently": True,
             "use_tls": True,
