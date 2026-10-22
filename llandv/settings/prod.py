@@ -130,17 +130,17 @@ DEFAULT_FROM_EMAIL = "noreply@llandv.com"
 
 DEFAULT_REPLY_TO_EMAIL = "bryce@llandv.com"
 
-EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-
-EMAIL_HOST = os.getenv("EMAIL_HOST")
-
-EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
-
-EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
-
-EMAIL_PORT = os.getenv("EMAIL_PORT", 587)
-
-EMAIL_USE_TLS = True
+MAILERS = {
+    "default": {
+        "BACKEND": "django.core.mail.backends.smtp.EmailBackend",
+        "OPTIONS": {
+            "host": os.getenv("EMAIL_HOST"),
+            "user": os.getenv("EMAIL_HOST_USER"),
+            "password": os.getenv("EMAIL_HOST_PASSWORD"),
+            "use_tls": True,
+        },
+    }
+}
 
 FILE_CHARSET = "utf-8"
 
@@ -202,7 +202,7 @@ STORAGES = {
             "region_name": "us-east-1",
             "querystring_auth": True,
             "querystring_expire": 3600,
-            "max_memory_size": 5 * 1024**2, # 5MB
+            "max_memory_size": 5 * 1024**2,  # 5MB
             "verify": True,
         },
     },
